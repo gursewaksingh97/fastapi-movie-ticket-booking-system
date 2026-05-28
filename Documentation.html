@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Movie Ticket Booking Management System</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Montserrat', sans-serif;
+
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:
+    linear-gradient(
+        135deg,
+        #eff6ff,
+        #ffffff,
+        #dbeafe
+    );
+
+    color:#0f172a;
+
+    min-height:100vh;
+}
+
+/* NAVBAR */
+
+nav{
+
+    width:100%;
+
+    padding:22px 60px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:white;
+
+    border-bottom:
+    1px solid #dbeafe;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    box-shadow:
+    0 5px 15px rgba(37,99,235,0.08);
+}
+
+.logo{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#2563eb;
+}
+
+nav ul{
+
+    display:flex;
+
+    gap:35px;
+
+    list-style:none;
+}
+
+nav ul li a{
+
+    text-decoration:none;
+
+    color:#334155;
+
+    font-weight:500;
+
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+
+    color:#2563eb;
+}
+
+/* HERO */
+
+.hero{
+
+    width:100%;
+
+    padding:90px 60px 60px;
+
+    text-align:center;
+}
+
+.hero h1{
+
+    font-size:62px;
+
+    color:#1d4ed8;
+
+    margin-bottom:25px;
+
+    line-height:1.2;
+}
+
+.hero p{
+
+    font-size:18px;
+
+    color:#475569;
+
+    line-height:1.9;
+
+    max-width:950px;
+
+    margin:auto;
+}
+
+/* SECTION */
+
+.section{
+
+    width:100%;
+
+    padding:20px 60px 60px;
+}
+
+/* ROW CARD */
+
+.row-card{
+
+    width:100%;
+
+    background:white;
+
+    border:
+    1px solid #dbeafe;
+
+    border-radius:30px;
+
+    padding:40px;
+
+    margin-bottom:30px;
+
+    transition:0.4s;
+
+    box-shadow:
+    0 8px 25px rgba(37,99,235,0.06);
+}
+
+.row-card:hover{
+
+    transform:
+    translateY(-6px);
+
+    border:
+    1px solid #93c5fd;
+
+    box-shadow:
+    0 20px 40px rgba(37,99,235,0.12);
+}
+
+/* TITLES */
+
+.row-card h2{
+
+    font-size:34px;
+
+    color:#2563eb;
+
+    margin-bottom:20px;
+}
+
+/* TEXT */
+
+.row-card p{
+
+    color:#475569;
+
+    line-height:2;
+
+    font-size:16px;
+}
+
+/* LIST */
+
+.row-card ul{
+
+    padding-left:22px;
+}
+
+.row-card li{
+
+    margin-bottom:16px;
+
+    color:#475569;
+
+    line-height:1.9;
+}
+
+/* TAGS */
+
+.tags{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    margin-top:25px;
+}
+
+.tags span{
+
+    padding:14px 22px;
+
+    border-radius:30px;
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+    border:
+    1px solid #bfdbfe;
+
+    font-size:14px;
+
+    font-weight:600;
+}
+
+/* WORKFLOW */
+
+.workflow{
+
+    margin-top:20px;
+
+    background:#eff6ff;
+
+    border-radius:24px;
+
+    padding:30px;
+
+    border:
+    1px solid #bfdbfe;
+}
+
+.workflow p{
+
+    font-size:17px;
+
+    line-height:2.2;
+
+    color:#1e293b;
+}
+
+/* FOOTER */
+
+.footer{
+
+    width:100%;
+
+    text-align:center;
+
+    padding:40px;
+
+    color:#64748b;
+
+    font-size:14px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    nav{
+
+        padding:20px;
+
+        flex-direction:column;
+
+        gap:15px;
+    }
+
+    nav ul{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+    }
+
+    .hero,
+    .section{
+
+        padding:25px;
+    }
+
+    .hero h1{
+
+        font-size:38px;
+    }
+
+    .row-card{
+
+        padding:28px;
+    }
+
+    .row-card h2{
+
+        font-size:28px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+
+        🎬 CineVerse Backend System
+
+    </div>
+
+    <ul>
+
+        <li><a href="#overview">Overview</a></li>
+
+        <li><a href="#problem">Problem Statement</a></li>
+
+        <li><a href="#requirements">Requirements</a></li>
+
+        <li><a href="#workflow-section">Workflow</a></li>
+
+    </ul>
+
+</nav>
+
+<!-- HERO -->
+
+<div class="hero" id="overview">
+
+    <h1>
+
+        Movie Ticket Booking Management System
+
+    </h1>
+
+    <p>
+
+        Industry-level backend CRUD application using
+        FastAPI, PostgreSQL, SQLAlchemy ORM and
+        Pydantic Models for managing movie bookings,
+        customer records and seat reservations digitally.
+
+    </p>
+
+</div>
+
+<!-- MAIN SECTION -->
+
+<div class="section">
+
+    <!-- PROBLEM STATEMENT -->
+
+    <div class="row-card" id="problem">
+
+        <h2>Problem Statement</h2>
+
+        <p>
+
+            Develop a backend Movie Ticket Booking
+            Management System using FastAPI,
+            PostgreSQL, SQLAlchemy ORM and
+            Pydantic Models.
+
+            <br><br>
+
+            The system should perform complete
+            CRUD operations for managing
+            movie booking records digitally.
+
+            <br><br>
+
+            The application should store and manage:
+
+            <br><br>
+
+            • Booking ID <br>
+            • Customer Name <br>
+            • Movie Name <br>
+            • Seat Number
+
+        </p>
+
+    </div>
+
+    <!-- OBJECTIVE -->
+
+    <div class="row-card">
+
+        <h2>Project Objective</h2>
+
+        <p>
+
+            Build scalable backend APIs capable of:
+
+            <br><br>
+
+            • Adding movie booking records <br>
+            • Viewing booking details <br>
+            • Updating booking information <br>
+            • Deleting booking records
+
+            <br><br>
+
+            The system should validate incoming
+            JSON data using Pydantic Models and
+            store all records inside PostgreSQL database.
+
+        </p>
+
+    </div>
+
+    <!-- FUNCTIONAL REQUIREMENTS -->
+
+    <div class="row-card" id="requirements">
+
+        <h2>Functional Requirements</h2>
+
+        <ul>
+
+            <li>
+                Add booking records using POST API
+            </li>
+
+            <li>
+                Fetch all booking records using GET API
+            </li>
+
+            <li>
+                Update movie and seat information using PUT API
+            </li>
+
+            <li>
+                Delete booking records using DELETE API
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- TECHNICAL REQUIREMENTS -->
+
+    <div class="row-card">
+
+        <h2>Technical Requirements</h2>
+
+        <div class="tags">
+
+            <span>FastAPI</span>
+
+            <span>PostgreSQL</span>
+
+            <span>SQLAlchemy ORM</span>
+
+            <span>Pydantic</span>
+
+            <span>Uvicorn</span>
+
+        </div>
+
+    </div>
+
+    <!-- DATABASE -->
+
+    <div class="row-card">
+
+        <h2>Database Structure</h2>
+
+        <p>
+
+            Table Name:
+
+            <br><br>
+
+            <b>MovieBooking</b>
+
+            <br><br>
+
+            booking_id → Integer <br><br>
+
+            customer_name → String <br><br>
+
+            movie_name → String <br><br>
+
+            seat_number → String
+
+        </p>
+
+    </div>
+
+    <!-- WORKFLOW -->
+
+    <div class="row-card" id="workflow-section">
+
+        <h2>Project Workflow</h2>
+
+        <div class="workflow">
+
+            <p>
+
+                User
+
+                <br> ↓ <br>
+
+                Swagger / Postman
+
+                <br> ↓ <br>
+
+                Pydantic Validation
+
+                <br> ↓ <br>
+
+                FastAPI Endpoint
+
+                <br> ↓ <br>
+
+                SQLAlchemy ORM
+
+                <br> ↓ <br>
+
+                PostgreSQL Database
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+    Industry-Level FastAPI CRUD Backend Project
+
+</div>
+
+</body>
+
+</html>
